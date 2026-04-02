@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    --background: 0.14 0.02 240;
+    --foreground: 0.93 0.01 240;
+    --card: 0.19 0.025 235;
+    --card-foreground: 0.93 0.01 240;
+    --popover: 0.16 0.022 238;
+    --popover-foreground: 0.93 0.01 240;
+    --primary: 0.78 0.08 230;
+    --primary-foreground: 0.12 0.02 240;
+    --secondary: 0.24 0.03 235;
+    --secondary-foreground: 0.93 0.01 240;
+    --muted: 0.22 0.025 235;
+    --muted-foreground: 0.62 0.03 230;
+    --accent: 0.72 0.12 230;
+    --accent-foreground: 0.12 0.02 240;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.28 0.03 235;
+    --input: 0.24 0.03 235;
+    --ring: 0.65 0.1 230;
+    --chart-1: 0.488 0.243 264.376;
+    --chart-2: 0.696 0.17 162.48;
+    --chart-3: 0.769 0.188 70.08;
+    --chart-4: 0.627 0.265 303.9;
+    --chart-5: 0.645 0.246 16.439;
+    --sidebar: 0.19 0.025 235;
+    --sidebar-foreground: 0.93 0.01 240;
+    --sidebar-primary: 0.68 0.15 245;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.24 0.03 235;
+    --sidebar-accent-foreground: 0.93 0.01 240;
+    --sidebar-border: 0.28 0.03 235;
+    --sidebar-ring: 0.55 0.08 235;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", "Plus Jakarta Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: oklch(0.14 0.02 240);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.3 0.04 235);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.4 0.06 235);
+  }
+}
+
+@layer utilities {
+  .hero-gradient {
+    background: radial-gradient(
+        ellipse 80% 60% at 50% 0%,
+        oklch(0.22 0.04 240 / 0.6) 0%,
+        oklch(0.12 0.025 242) 60%
+      ),
+      linear-gradient(
+        160deg,
+        oklch(0.12 0.025 242) 0%,
+        oklch(0.17 0.03 236) 100%
+      );
+  }
+
+  .mesh-bg {
+    background-image: radial-gradient(
+        ellipse 60% 40% at 20% 20%,
+        oklch(0.25 0.06 250 / 0.2) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 50% 50% at 80% 80%,
+        oklch(0.22 0.04 220 / 0.15) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 70% 40% at 60% 40%,
+        oklch(0.18 0.03 260 / 0.1) 0%,
+        transparent 50%
+      );
+  }
+
+  .glass-nav {
+    background: oklch(0.18 0.025 240 / 0.85);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border-bottom: 1px solid oklch(0.28 0.03 235 / 0.6);
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px oklch(0.1 0.02 240 / 0.7), 0 0 0 1px
+      oklch(0.4 0.08 245 / 0.3);
+  }
+
+  .popularity-bar {
+    background: linear-gradient(
+      90deg,
+      oklch(0.68 0.15 245),
+      oklch(0.58 0.12 230)
+    );
+  }
+
+  .font-preview-text {
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    line-height: 1.35;
+    color: oklch(0.9 0.01 240);
+  }
+
+  @keyframes float-wave {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-8px) rotate(0.5deg);
+    }
+    66% {
+      transform: translateY(-4px) rotate(-0.5deg);
+    }
+  }
+
+  .wave-animate {
+    animation: float-wave 8s ease-in-out infinite;
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.93 0.01 240) 0%,
+      oklch(0.75 0.1 235) 60%,
+      oklch(0.68 0.15 245) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
