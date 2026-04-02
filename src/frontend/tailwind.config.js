@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "Plus Jakarta Sans", "system-ui", "sans-serif"],
-        display: ["Plus Jakarta Sans", "Inter", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Orbitron", "sans-serif"],
+        rajdhani: ["Rajdhani", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
@@ -77,7 +78,8 @@ export default {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
-        card: "0 4px 16px oklch(0.08 0.02 240 / 0.8), 0 1px 4px oklch(0.08 0.02 240 / 0.5)",
+        card: "0 4px 16px oklch(0.05 0.01 270 / 0.8), 0 1px 4px oklch(0.05 0.01 270 / 0.5)",
+        neon: "0 0 12px oklch(0.62 0.24 305 / 0.4), 0 0 24px oklch(0.62 0.24 305 / 0.2)",
       },
       keyframes: {
         "accordion-down": {
@@ -92,11 +94,16 @@ export default {
           from: { opacity: "0", transform: "translateY(16px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px oklch(0.62 0.24 305 / 0.4)" },
+          "50%": { boxShadow: "0 0 40px oklch(0.62 0.24 305 / 0.7)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in-up": "fade-in-up 0.5s ease-out forwards",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
       },
     },
   },
